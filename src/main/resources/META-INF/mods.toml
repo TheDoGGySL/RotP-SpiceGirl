@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="GNU GPL v3.0"
+[[mods]]
+modId="rotp_sg"
+version="${file.jarVersion}"
+displayName="Spice Girl RoTP Addon"
+logoFile="logo.png"
+credits="StandoByte, "
+authors="TheDoGGy"
+description='''
+Soft and plush!
+'''
+[[dependencies.rotp_sg]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.rotp_sg]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.rotp_sg]]
+    modId="jojo"
+    mandatory=true
+    versionRange="[0.2.2,0.3)"
+    ordering="AFTER"
+    side="BOTH"
