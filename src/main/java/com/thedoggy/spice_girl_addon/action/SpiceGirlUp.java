@@ -20,7 +20,7 @@ public class SpiceGirlUp extends StandEntityAction {
 
     public static final StandPose BOUNCE_UP = new StandPose("BOUNCE_UP");
 
-    private static final double RANGE = 10;
+    private static final double RANGE = 5;
 
     @Override
     public void standTickPerform(World world, StandEntity standEntity, IStandPower userPower, StandEntityTask task) {
@@ -37,7 +37,7 @@ public class SpiceGirlUp extends StandEntityAction {
                 Entity effecttarget = entity;
                 if (effecttarget instanceof LivingEntity) {
                     LivingEntity effectTarget = (LivingEntity) effecttarget;
-                    effectTarget.addEffect(new EffectInstance(Effects.LEVITATION, 20, 24));
+                    effectTarget.addEffect(new EffectInstance(Effects.LEVITATION, 20, 24, false, false));
                     standEntity.playSound(InitSounds.SPICE_GIRL_ABILITY_FIRST.get(),1.0f,1.0f);
                 }
             }

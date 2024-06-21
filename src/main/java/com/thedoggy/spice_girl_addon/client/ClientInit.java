@@ -11,9 +11,22 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 @EventBusSubscriber(modid = SpiceGirl.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientInit {
-    
+
     @SubscribeEvent
     public static void onFMLClientSetup(FMLClientSetupEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(InitStands.STAND_SPICE_GIRL.getEntityType(), SpiceGirlRenderer::new);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

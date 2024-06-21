@@ -1,8 +1,6 @@
 package com.thedoggy.spice_girl_addon;
 
-import com.thedoggy.spice_girl_addon.init.InitEntities;
-import com.thedoggy.spice_girl_addon.init.InitSounds;
-import com.thedoggy.spice_girl_addon.init.InitStands;
+import com.thedoggy.spice_girl_addon.init.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -22,7 +20,6 @@ public class SpiceGirl {
         InitSounds.SOUNDS.register(modEventBus);
         InitStands.ACTIONS.register(modEventBus);
         InitStands.STANDS.register(modEventBus);
-
-
+        InitEffects.EFFECTS.register(modEventBus);
         }
     }

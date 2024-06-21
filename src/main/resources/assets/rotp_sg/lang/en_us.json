@@ -10,5 +10,6 @@
   "action.rotp_sg.spice_girl_bounce": "Make softer",
   "action.rotp_sg.spice_girl_bounce_her": "Make softer yourself",
   "action.rotp_sg.spice_girl_bounce_up": "Bounce up",
-  "action.rotp_sg.spice_girl_bounce_up_her": "Bounce up yourself"
+  "action.rotp_sg.spice_girl_bounce_up_her": "Bounce up yourself",
+  "effect.rotp_sg.bounce": "Bouncy"
 }

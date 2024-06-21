@@ -45,8 +45,8 @@ public class InitStands {
                     .partsRequired(StandPart.ARMS)));
 
 
-    public static final RegistryObject<StandEntityHeavyAttack> SPICE_GIRL_HEAVY_PUNCH = ACTIONS.register("spice_girl_heavy_punch",
-            () -> new StandEntityHeavyAttack(new StandEntityHeavyAttack.Builder()
+    public static final RegistryObject<SpiceGirlHeavy> SPICE_GIRL_HEAVY_PUNCH = ACTIONS.register("spice_girl_heavy_punch",
+            () -> new SpiceGirlHeavy(new StandEntityHeavyAttack.Builder()
                     .shout(InitSounds.SPICE_GIRL_HEAVY_PUNCH_VOICE)
                     .shiftVariationOf(SPICE_GIRL_PUNCH).shiftVariationOf(SPICE_GIRL_BARRAGE)
                     .setFinisherVariation(SPICE_GIRL_FINISHER_PUNCH)
@@ -62,26 +62,25 @@ public class InitStands {
                     .partsRequired(StandPart.ARMS)));
 
     public static final RegistryObject<SpiceGirlBounce> SPICE_GIRL_BOUNCE = ACTIONS.register("spice_girl_bounce",
-            () -> new SpiceGirlBounce(new StandEntityAction.Builder().holdType(80).staminaCostTick(3F).cooldown(160)
+            () -> new SpiceGirlBounce(new StandEntityLightAttack.Builder()
+                    .staminaCost(250)
+                    .cooldown(160)
                     .standPose(SpiceGirlBounce.BOUNCE)
                     .shout(InitSounds.SPICE_GIRL_ABILITY_FIRST_VOICE)
-                    .standOffsetFromUser(0, 1).standSound(InitSounds.SPICE_GIRL_ABILITY_SECOND)
-                    .partsRequired(StandPart.MAIN_BODY)));
+                    .standSound(InitSounds.SPICE_GIRL_ABILITY_SECOND)
+                    .partsRequired(StandPart.ARMS)));
 
     public static final RegistryObject<SpiceGirlBounceHer> SPICE_GIRL_BOUNCE_HER = ACTIONS.register("spice_girl_bounce_her",
-            () -> new SpiceGirlBounceHer(new SpiceGirlBounceHer.Builder()
-                    .resolveLevelToUnlock(1)
-                    .shiftVariationOf(SPICE_GIRL_BOUNCE)
-                    .staminaCost(3F)
-                    .cooldown(160)
-                    .standSound(InitSounds.SPICE_GIRL_ABILITY_SECOND)
+            () -> new SpiceGirlBounceHer(new StandEntityAction.Builder().holdType(80).staminaCostTick(3F).cooldown(160)
                     .shout(InitSounds.SPICE_GIRL_ABILITY_FIRST_VOICE)
+                    .shiftVariationOf(SPICE_GIRL_BOUNCE)
                     .partsRequired(StandPart.MAIN_BODY)));
+
 
     public static final RegistryObject<SpiceGirlUp> SPICE_GIRL_BOUNCE_UP = ACTIONS.register("spice_girl_bounce_up",
             () -> new SpiceGirlUp(new SpiceGirlUp.Builder()
                     .shout(InitSounds.SPICE_GIRL_ABILITY_SECOND_VOICE)
-                    .resolveLevelToUnlock(2)
+                    .resolveLevelToUnlock(1)
                     .holdToFire(25, false)
                     .cooldown(200)
                     .standPose(SpiceGirlUp.BOUNCE_UP)
@@ -91,7 +90,7 @@ public class InitStands {
     public static final RegistryObject<SpiceGirlUpHer> SPICE_GIRL_BOUNCE_UP_HER = ACTIONS.register("spice_girl_bounce_up_her",
             () -> new SpiceGirlUpHer(new SpiceGirlUpHer.Builder()
                     .shiftVariationOf(SPICE_GIRL_BOUNCE_UP)
-                    .resolveLevelToUnlock(3)
+                    .resolveLevelToUnlock(2)
                     .holdToFire(25, false)
                     .shout(InitSounds.SPICE_GIRL_ABILITY_SECOND_VOICE)
                     .standSound(InitSounds.SPICE_GIRL_ABILITY_FIRST)
@@ -114,12 +113,12 @@ public class InitStands {
                             SPICE_GIRL_BOUNCE_UP.get()
                             )
                     .defaultStats(StandStats.class, new StandStats.Builder()
-                            .power(15)
+                            .power(14)
                             .speed(15)
-                            .range(2.5, 10)
-                            .durability(16)
-                            .precision(16)
-                            .randomWeight(0.1))
+                            .range(5, 10)
+                            .durability(13)
+                            .precision(7)
+                            .randomWeight(0.3))
                             .addSummonShout(InitSounds.SPICE_GIRL_SUMMON_VOICE)
                     .addOst(InitSounds.SPICE_GIRL_OST)
                     .build(),

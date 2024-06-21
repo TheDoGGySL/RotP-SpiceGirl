@@ -10,5 +10,6 @@
   "action.rotp_sg.spice_girl_bounce": "Сделать легче",
   "action.rotp_sg.spice_girl_bounce_her": "Сделать легче себя",
   "action.rotp_sg.spice_girl_bounce_up": "Подбросить",
-  "action.rotp_sg.spice_girl_bounce_up_her": "Подбросить себя"
+  "action.rotp_sg.spice_girl_bounce_up_her": "Подбросить себя",
+  "effect.rotp_sg.bounce": "Легкость"
 }
