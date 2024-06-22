@@ -19,13 +19,14 @@ public class SpiceGirlHeavy extends StandEntityHeavyAttack {
     @Override
     public StandEntityPunch punchEntity(StandEntity stand, Entity target, StandEntityDamageSource dmgSource) {
         LivingEntity living = (LivingEntity) target;
+        if (target != null) {
 
         living.addEffect(new EffectInstance(InitEffects.BOUNCE_EFFECT.get(), 300, 0, false, false, false));
-        living.addEffect(new EffectInstance(Effects.CONFUSION, 300, 0, false, false, false));
+        living.addEffect(new EffectInstance(Effects.CONFUSION, 300, 0, false, false, false)); }
 
         return super.punchEntity(stand, target, dmgSource).addKnockback(0.5F + stand.getLastHeavyFinisherValue())
                 .knockbackXRot(-10.0F);
     }
 
+        }
 
-}

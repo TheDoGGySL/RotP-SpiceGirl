@@ -187,7 +187,6 @@ public class SpiceGirlModel extends HumanoidStandModel<SpiceGirlEntity> {
 				},
 				new RotationAngle[]{
 						RotationAngle.fromDegrees(head, 45F, 7.5F, 0F),
-						RotationAngle.fromDegrees(torso, 2.5F, 0F, 0F),
 						RotationAngle.fromDegrees(leftArm, 0F, 0F, -7.5F),
 						RotationAngle.fromDegrees(leftForeArm, -59.2981F, 17.0434F, -4.4859F),
 						RotationAngle.fromDegrees(rightArm, 0F, 0F, 5F),
@@ -233,7 +232,8 @@ public class SpiceGirlModel extends HumanoidStandModel<SpiceGirlEntity> {
 				RotationAngle.fromDegrees(leftLeg, -2.5F, 0F, -2.5F),
 				RotationAngle.fromDegrees(leftLowerLeg, 4.9811F, 0.4352F, -4.9811F),
 				RotationAngle.fromDegrees(rightLeg, -4.9953F, 0.2178F, 4.9905F),
-				RotationAngle.fromDegrees(rightLowerLeg, 7.4929F, -0.3262F, 2.4786F)
+				RotationAngle.fromDegrees(rightLowerLeg, 7.4929F, -0.3262F, 2.4786F),
+				RotationAngle.fromDegrees(upperPart, 0F, 0F, 0F),
 		});
 	}
 

@@ -74,13 +74,14 @@ public class InitStands {
             () -> new SpiceGirlBounceHer(new StandEntityAction.Builder().holdType(80).staminaCostTick(3F).cooldown(160)
                     .shout(InitSounds.SPICE_GIRL_ABILITY_FIRST_VOICE)
                     .shiftVariationOf(SPICE_GIRL_BOUNCE)
+                    .resolveLevelToUnlock(1)
                     .partsRequired(StandPart.MAIN_BODY)));
 
 
     public static final RegistryObject<SpiceGirlUp> SPICE_GIRL_BOUNCE_UP = ACTIONS.register("spice_girl_bounce_up",
             () -> new SpiceGirlUp(new SpiceGirlUp.Builder()
                     .shout(InitSounds.SPICE_GIRL_ABILITY_SECOND_VOICE)
-                    .resolveLevelToUnlock(1)
+                    .resolveLevelToUnlock(2)
                     .holdToFire(25, false)
                     .cooldown(200)
                     .standPose(SpiceGirlUp.BOUNCE_UP)
@@ -90,7 +91,7 @@ public class InitStands {
     public static final RegistryObject<SpiceGirlUpHer> SPICE_GIRL_BOUNCE_UP_HER = ACTIONS.register("spice_girl_bounce_up_her",
             () -> new SpiceGirlUpHer(new SpiceGirlUpHer.Builder()
                     .shiftVariationOf(SPICE_GIRL_BOUNCE_UP)
-                    .resolveLevelToUnlock(2)
+                    .resolveLevelToUnlock(3)
                     .holdToFire(25, false)
                     .shout(InitSounds.SPICE_GIRL_ABILITY_SECOND_VOICE)
                     .standSound(InitSounds.SPICE_GIRL_ABILITY_FIRST)

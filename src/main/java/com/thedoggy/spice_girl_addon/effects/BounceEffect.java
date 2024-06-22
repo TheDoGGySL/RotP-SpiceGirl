@@ -76,24 +76,28 @@ public class BounceEffect extends Effect implements IApplicableEffect {
             }
         }
     }
+
     @SubscribeEvent
     public static void whenInWater(LivingEvent.LivingUpdateEvent event) {
         LivingEntity entity = event.getEntityLiving();
-        if ((entity instanceof PlayerEntity && entity.level.isClientSide()) || !entity.level.isClientSide()){
-            if (entity.isInWater() && entity.hasEffect(InitEffects.BOUNCE_EFFECT.get())){
+        if ((entity instanceof PlayerEntity && entity.level.isClientSide()) || !entity.level.isClientSide()) {
+            if (entity.isInWater() && entity.hasEffect(InitEffects.BOUNCE_EFFECT.get())) {
                 entity.setDeltaMovement(entity.getDeltaMovement().x(), 0.1, entity.getDeltaMovement().z());
             }
         }
     }
+
     // 3 часа мучений от мистера биста part 2
     @SubscribeEvent
     public static void onKnockback(LivingKnockBackEvent event) {
         LivingEntity entity = event.getEntityLiving();
         if (entity.hasEffect(InitEffects.BOUNCE_EFFECT.get())) {
-            event.setStrength(1.5F*(entity.getEffect(InitEffects.BOUNCE_EFFECT.get()).getAmplifier()+1));
+            event.setStrength(1.5F * (entity.getEffect(InitEffects.BOUNCE_EFFECT.get()).getAmplifier() + 1));
         }
     }
 }
+
+
 
 
 
