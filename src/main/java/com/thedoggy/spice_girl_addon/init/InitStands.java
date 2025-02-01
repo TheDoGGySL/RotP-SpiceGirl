@@ -97,6 +97,8 @@ public class InitStands {
                     .standSound(InitSounds.SPICE_GIRL_ABILITY_FIRST)
                     .cooldown(175)
                     .partsRequired(StandPart.MAIN_BODY)));
+
+
     public static final EntityStandRegistryObject<EntityStandType<StandStats>, StandEntityType<SpiceGirlEntity>> STAND_SPICE_GIRL =
             new EntityStandRegistryObject<>("spice_girl",
                     STANDS, 
@@ -106,6 +108,7 @@ public class InitStands {
                     .leftClickHotbar(
                             SPICE_GIRL_PUNCH.get(),
                             SPICE_GIRL_BARRAGE.get()
+                            // SPICE_GIRL_SOFT_BLOCK.get()
                             )
                     .rightClickHotbar(
                             SPICE_GIRL_BLOCK.get(),

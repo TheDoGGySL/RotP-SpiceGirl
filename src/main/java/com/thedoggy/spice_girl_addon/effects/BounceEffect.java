@@ -7,10 +7,12 @@ import com.thedoggy.spice_girl_addon.event.EventQueue;
 import com.thedoggy.spice_girl_addon.init.InitEffects;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.vector.Vector3d;
+import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -93,6 +95,28 @@ public class BounceEffect extends Effect implements IApplicableEffect {
         LivingEntity entity = event.getEntityLiving();
         if (entity.hasEffect(InitEffects.BOUNCE_EFFECT.get())) {
             event.setStrength(1.5F * (entity.getEffect(InitEffects.BOUNCE_EFFECT.get()).getAmplifier() + 1));
+        }
+    }
+    @SubscribeEvent
+    public static void onProjectileImpact(ProjectileImpactEvent event) {
+        ProjectileEntity projectile = (ProjectileEntity) event.getEntity();
+        if (event.getRayTraceResult().getType() == net.minecraft.util.math.RayTraceResult.Type.ENTITY) {
+            if (event.getRayTraceResult() instanceof net.minecraft.util.math.EntityRayTraceResult) {
+                net.minecraft.util.math.EntityRayTraceResult entityRayTraceResult = (net.minecraft.util.math.EntityRayTraceResult) event.getRayTraceResult();
+                if (entityRayTraceResult.getEntity() instanceof LivingEntity) {
+                    LivingEntity target = (LivingEntity) entityRayTraceResult.getEntity();
+                    if (target.hasEffect(InitEffects.BOUNCE_EFFECT.get())) {
+                        Vector3d motion = projectile.getDeltaMovement();
+                        Vector3d bounceMotion = new Vector3d(
+                                -motion.x * 0.5,
+                                Math.abs(motion.y) * 0.5,
+                                -motion.z * 0.5
+                        );
+                        projectile.setDeltaMovement(bounceMotion);
+                        event.setCanceled(true);
+                    }
+                }
+            }
         }
     }
 }

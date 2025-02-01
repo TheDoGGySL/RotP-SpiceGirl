@@ -1,0 +1,15 @@
+{
+  "entity.rotp_sg.spice_girl": "Spice Girl",
+  "stand.rotp_sg.spice_girl": "Spice Girl",
+  "action.rotp_sg.spice_girl_punch": "Puñetazo",
+  "action.rotp_sg.spice_girl_heavy_punch": "Golpe fuerte",
+  "action.rotp_sg.spice_girl_finisher_punch": "Golpe de remate",
+  "action.rotp_sg.spice_girl_barrage": "Bombardeo de puñetazos",
+  "action.rotp_sg.spice_girl_block": "Bloquear",
+  "action.rotp_sg.spice_girl_wall_climb": "Escalar la pared",
+  "action.rotp_sg.spice_girl_bounce": "Hacer más suave",
+  "action.rotp_sg.spice_girl_bounce_her": "Hazte más suave",
+  "action.rotp_sg.spice_girl_bounce_up": "Rebota",
+  "action.rotp_sg.spice_girl_bounce_up_her": "Rebota tú mismo",
+  "effect.rotp_sg.bounce": "Rebotador"
+}

@@ -1,0 +1,15 @@
+{
+  "entity.rotp_sg.spice_girl": "辣妹",
+  "stand.rotp_sg.spice_girl": "辣妹",
+  "action.rotp_sg.spice_girl_punch": "轻击",
+  "action.rotp_sg.spice_girl_heavy_punch": "重击",
+  "action.rotp_sg.spice_girl_finisher_punch": "终结一击",
+  "action.rotp_sg.spice_girl_barrage": "超高速连打",
+  "action.rotp_sg.spice_girl_block": "防御",
+  "action.rotp_sg.spice_girl_wall_climb": "爬墙",
+  "action.rotp_sg.spice_girl_bounce": "让目标变得柔软",
+  "action.rotp_sg.spice_girl_bounce_her": "让自己变得柔软",
+  "action.rotp_sg.spice_girl_bounce_up": "弹起目标",
+  "action.rotp_sg.spice_girl_bounce_up_her": "弹起自己",
+  "effect.rotp_sg.bounce": "有弹性"
+}
