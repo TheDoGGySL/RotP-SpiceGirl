@@ -3,7 +3,9 @@ package com.thedoggy.spice_girl_addon.init;
 import com.github.standobyte.jojo.action.Action;
 import com.github.standobyte.jojo.action.stand.*;
 import com.github.standobyte.jojo.entity.stand.StandEntityType;
+import com.github.standobyte.jojo.entity.stand.StandPose;
 import com.github.standobyte.jojo.init.power.stand.EntityStandRegistryObject;
+import com.github.standobyte.jojo.init.power.stand.ModStandsInit;
 import com.github.standobyte.jojo.power.impl.stand.StandInstance.StandPart;
 import com.github.standobyte.jojo.power.impl.stand.stats.StandStats;
 import com.github.standobyte.jojo.power.impl.stand.type.EntityStandType;
@@ -34,6 +36,7 @@ public class InitStands {
 
     public static final RegistryObject<StandEntityMeleeBarrage> SPICE_GIRL_BARRAGE = ACTIONS.register("spice_girl_barrage",
             () -> new StandEntityMeleeBarrage(new StandEntityMeleeBarrage.Builder()
+                    .standPose(new StandPose("barrage"))
                     .barrageHitSound(InitSounds.SPICE_GIRL_PUNCH_BARRAGE)
                     .standSound(StandEntityAction.Phase.PERFORM, false, InitSounds.SPICE_GIRL_BARRAGE_VOICE)));
 
@@ -41,6 +44,7 @@ public class InitStands {
     public static final RegistryObject<SpiceGirlFinisher> SPICE_GIRL_FINISHER_PUNCH = ACTIONS.register("spice_girl_finisher_punch",
             () -> new SpiceGirlFinisher(new SpiceGirlFinisher.Builder() // TODO finisher ability
                     .shout(InitSounds.SPICE_GIRL_FINISHER_PUNCH_VOICE)
+                    .standPose(SpiceGirlFinisher.FINISHER)
                     .punchSound(InitSounds.SPICE_GIRL_PUNCH_FINISHER)
                     .partsRequired(StandPart.ARMS)));
 
@@ -56,6 +60,16 @@ public class InitStands {
     public static final RegistryObject<StandEntityAction> SPICE_GIRL_BLOCK = ACTIONS.register("spice_girl_block",
             () -> new StandEntityBlock());
 
+    public static final RegistryObject<SpiceGirlSoftBlock> SPICE_GIRL_SOFT_BLOCK = ACTIONS.register("spice_girl_soft_block",
+            () -> new SpiceGirlSoftBlock(new StandEntityAction.Builder()
+                    .standPose(SpiceGirlSoftBlock.SOFT_BLOCK)
+                    .staminaCostTick(3F).cooldown(100)
+                    .holdToFire(20, false)
+                    .shout(InitSounds.SPICE_GIRL_ABILITY_FIRST_VOICE)
+                    .standOffsetFront()
+                    .resolveLevelToUnlock(1)
+                    .partsRequired(StandPart.MAIN_BODY)));
+
     public static final RegistryObject<SpiceGirlWallClimb> SPICE_GIRL_WALL_CLIMB = ACTIONS.register("spice_girl_wall_climb",
             () -> new SpiceGirlWallClimb(new SpiceGirlWallClimb.Builder()
                     .shout(InitSounds.SPICE_GIRL_HEAVY_PUNCH_VOICE)
@@ -63,7 +77,9 @@ public class InitStands {
 
     public static final RegistryObject<SpiceGirlBounce> SPICE_GIRL_BOUNCE = ACTIONS.register("spice_girl_bounce",
             () -> new SpiceGirlBounce(new StandEntityLightAttack.Builder()
+                    .standPose(SpiceGirlBounce.BOUNCE)
                     .staminaCost(250)
+                    .standOffsetFront()
                     .cooldown(160)
                     .standPose(SpiceGirlBounce.BOUNCE)
                     .shout(InitSounds.SPICE_GIRL_ABILITY_FIRST_VOICE)
@@ -73,6 +89,8 @@ public class InitStands {
     public static final RegistryObject<SpiceGirlBounceHer> SPICE_GIRL_BOUNCE_HER = ACTIONS.register("spice_girl_bounce_her",
             () -> new SpiceGirlBounceHer(new StandEntityAction.Builder().holdType(80).staminaCostTick(3F).cooldown(160)
                     .shout(InitSounds.SPICE_GIRL_ABILITY_FIRST_VOICE)
+                    .standPose(SpiceGirlBounceHer.BOUNCE_HER)
+                    .holdToFire(20, false)
                     .shiftVariationOf(SPICE_GIRL_BOUNCE)
                     .resolveLevelToUnlock(1)
                     .partsRequired(StandPart.MAIN_BODY)));
@@ -82,7 +100,8 @@ public class InitStands {
             () -> new SpiceGirlUp(new SpiceGirlUp.Builder()
                     .shout(InitSounds.SPICE_GIRL_ABILITY_SECOND_VOICE)
                     .resolveLevelToUnlock(2)
-                    .holdToFire(25, false)
+                    .standOffsetFront()
+                    .holdToFire(20, false)
                     .cooldown(200)
                     .standPose(SpiceGirlUp.BOUNCE_UP)
                     .standSound(InitSounds.SPICE_GIRL_ABILITY_FIRST)
@@ -91,8 +110,10 @@ public class InitStands {
     public static final RegistryObject<SpiceGirlUpHer> SPICE_GIRL_BOUNCE_UP_HER = ACTIONS.register("spice_girl_bounce_up_her",
             () -> new SpiceGirlUpHer(new SpiceGirlUpHer.Builder()
                     .shiftVariationOf(SPICE_GIRL_BOUNCE_UP)
+                    .standPose(SpiceGirlUpHer.BOUNCE_UP_HER)
+                    .standOffsetFromUser(0, 2)
                     .resolveLevelToUnlock(3)
-                    .holdToFire(25, false)
+                    .holdToFire(20, false)
                     .shout(InitSounds.SPICE_GIRL_ABILITY_SECOND_VOICE)
                     .standSound(InitSounds.SPICE_GIRL_ABILITY_FIRST)
                     .cooldown(175)
@@ -107,8 +128,8 @@ public class InitStands {
                     .storyPartName(StoryPart.GOLDEN_WIND.getName())
                     .leftClickHotbar(
                             SPICE_GIRL_PUNCH.get(),
-                            SPICE_GIRL_BARRAGE.get()
-                            // SPICE_GIRL_SOFT_BLOCK.get()
+                            SPICE_GIRL_BARRAGE.get(),
+                            SPICE_GIRL_SOFT_BLOCK.get()
                             )
                     .rightClickHotbar(
                             SPICE_GIRL_BLOCK.get(),

@@ -54,6 +54,8 @@ public class InitSounds {
     public static final Supplier<SoundEvent> SPICE_GIRL_ABILITY_SECOND_VOICE = SOUNDS.register("sg_ability2_voice",
             () -> new SoundEvent(new ResourceLocation(SpiceGirl.MOD_ID,"sg_ability2_voice")));
 
+    public static final Supplier<SoundEvent> TRISH_ARIVIDERCHI = SOUNDS.register("trish_arividerchi",
+            () -> new SoundEvent(new ResourceLocation(SpiceGirl.MOD_ID,"trish_arividerchi")));
 
     public static final Supplier<SoundEvent> SPICE_GIRL_PUNCH_BARRAGE = InitSounds.SPICE_GIRL_PUNCH_LIGHT;
 

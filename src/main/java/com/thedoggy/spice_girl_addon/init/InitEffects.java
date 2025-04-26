@@ -2,7 +2,7 @@ package com.thedoggy.spice_girl_addon.init;
 
 
 import com.thedoggy.spice_girl_addon.SpiceGirl;
-import com.thedoggy.spice_girl_addon.effects.BounceEffect;
+import com.thedoggy.spice_girl_addon.effect.BounceEffect;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.potion.Effect;

@@ -3,6 +3,7 @@ package com.thedoggy.spice_girl_addon.action;
 import com.github.standobyte.jojo.action.stand.StandEntityAction;
 import com.github.standobyte.jojo.entity.stand.StandEntity;
 import com.github.standobyte.jojo.entity.stand.StandEntityTask;
+import com.github.standobyte.jojo.entity.stand.StandPose;
 import com.github.standobyte.jojo.power.impl.stand.IStandPower;
 import com.thedoggy.spice_girl_addon.init.InitEffects;
 import com.thedoggy.spice_girl_addon.init.InitSounds;
@@ -14,7 +15,7 @@ public class SpiceGirlBounceHer extends StandEntityAction {
     public SpiceGirlBounceHer(StandEntityAction.Builder builder) {
         super(builder);
     }
-
+    public static final StandPose BOUNCE_HER = new StandPose("selfPunch");
 
     @Override
     public void standPerform(World world, StandEntity standEntity, IStandPower userPower, StandEntityTask task) {

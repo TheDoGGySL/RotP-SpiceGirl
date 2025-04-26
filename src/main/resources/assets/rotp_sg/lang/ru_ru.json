@@ -7,9 +7,10 @@
   "action.rotp_sg.spice_girl_barrage": "Шквал ударов",
   "action.rotp_sg.spice_girl_block": "Блокирование",
   "action.rotp_sg.spice_girl_wall_climb": "Подняться по стене",
-  "action.rotp_sg.spice_girl_bounce": "Сделать легче",
-  "action.rotp_sg.spice_girl_bounce_her": "Сделать легче себя",
+  "action.rotp_sg.spice_girl_bounce": "Сделать мягче",
+  "action.rotp_sg.spice_girl_bounce_her": "Сделать мягче себя",
   "action.rotp_sg.spice_girl_bounce_up": "Подбросить",
+  "action.rotp_sg.spice_girl_soft_block": "Сделать блок мягче",
   "action.rotp_sg.spice_girl_bounce_up_her": "Подбросить себя",
   "effect.rotp_sg.bounce": "Легкость"
 }

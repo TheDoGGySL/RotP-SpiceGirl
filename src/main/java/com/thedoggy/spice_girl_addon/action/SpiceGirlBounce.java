@@ -18,7 +18,7 @@ import static com.thedoggy.spice_girl_addon.init.InitEffects.BOUNCE_EFFECT;
 public class SpiceGirlBounce extends StandEntityLightAttack {
     boolean manifest = true;
 
-    public static final StandPose BOUNCE = new StandPose("BOUNCE");
+    public static final StandPose BOUNCE = new StandPose("mobPunch");
 
 
     public SpiceGirlBounce(StandEntityLightAttack.Builder builder) {

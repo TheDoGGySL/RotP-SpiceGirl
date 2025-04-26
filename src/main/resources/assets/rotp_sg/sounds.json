@@ -79,8 +79,13 @@
     "sounds": [
       "rotp_sg:stand_user/trish_finisher1",
       "rotp_sg:stand_user/trish_finisher2",
-      "rotp_sg:stand_user/trish_finisher3",
-      "rotp_sg:stand_user/trish_finisher4"
+      "rotp_sg:stand_user/trish_finisher3"
+    ]
+  },
+  "trish_arividerchi": {
+    "subtitle": "rotp_sg.subtitle.trish_arividerchi",
+    "sounds": [
+      "rotp_sg:stand_user/trish_arividerchi"
     ]
   },
   "sg_summon_voice": {

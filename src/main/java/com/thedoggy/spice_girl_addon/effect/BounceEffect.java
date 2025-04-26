@@ -1,17 +1,21 @@
-package com.thedoggy.spice_girl_addon.effects;
+package com.thedoggy.spice_girl_addon.effect;
 
 import com.github.standobyte.jojo.potion.IApplicableEffect;
 import com.thedoggy.spice_girl_addon.SpiceGirl;
-import com.thedoggy.spice_girl_addon.event.BounceTimedEvent;
-import com.thedoggy.spice_girl_addon.event.EventQueue;
 import com.thedoggy.spice_girl_addon.init.InitEffects;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.EntityRayTraceResult;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.world.World;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -26,39 +30,6 @@ public class BounceEffect extends Effect implements IApplicableEffect {
     @Override
     public boolean isApplicable(LivingEntity entity) {
         return !(entity instanceof PlayerEntity && ((PlayerEntity) entity).abilities.instabuild);
-    }
-
-    @SubscribeEvent
-    public static void onFall(LivingFallEvent event) {
-        LivingEntity entity = event.getEntityLiving();
-        if (entity == null || !entity.hasEffect(InitEffects.BOUNCE_EFFECT.get())) {
-            return;
-        }
-        boolean isPlayer = entity instanceof PlayerEntity;
-        boolean isClient = entity.level.isClientSide;
-        if (isClient && !isPlayer) {
-            return;
-        }
-        if (event.getDistance() > 2) {
-            if (entity.isCrouching()) {
-                event.setDamageMultiplier(0.0f);
-            } else {
-                event.setDamageMultiplier(0);
-                entity.fallDistance = 0.0F;
-                if (!isPlayer || isClient) {
-                    double f = 0.95d - .1 * entity.getEffect(InitEffects.BOUNCE_EFFECT.get()).getAmplifier();
-                    // only slow down half as much when bouncing
-                    entity.setDeltaMovement(entity.getDeltaMovement().x / f, entity.getDeltaMovement().y * (-0.9), entity.getDeltaMovement().z / f);
-                    entity.setOnGround(false);
-                }
-                if (isClient) {
-                    EventQueue.getClientQueue().addEvent(new BounceTimedEvent(entity, entity.getDeltaMovement().y));
-                } else {
-                    EventQueue.getServerInstance().addEvent(new BounceTimedEvent(entity, entity.getDeltaMovement().y));
-                }
-                event.setCanceled(true);
-            }
-        }
     }
 
     @SubscribeEvent
@@ -99,22 +70,53 @@ public class BounceEffect extends Effect implements IApplicableEffect {
     }
     @SubscribeEvent
     public static void onProjectileImpact(ProjectileImpactEvent event) {
-        ProjectileEntity projectile = (ProjectileEntity) event.getEntity();
-        if (event.getRayTraceResult().getType() == net.minecraft.util.math.RayTraceResult.Type.ENTITY) {
-            if (event.getRayTraceResult() instanceof net.minecraft.util.math.EntityRayTraceResult) {
-                net.minecraft.util.math.EntityRayTraceResult entityRayTraceResult = (net.minecraft.util.math.EntityRayTraceResult) event.getRayTraceResult();
-                if (entityRayTraceResult.getEntity() instanceof LivingEntity) {
-                    LivingEntity target = (LivingEntity) entityRayTraceResult.getEntity();
-                    if (target.hasEffect(InitEffects.BOUNCE_EFFECT.get())) {
-                        Vector3d motion = projectile.getDeltaMovement();
-                        Vector3d bounceMotion = new Vector3d(
-                                -motion.x * 0.5,
-                                Math.abs(motion.y) * 0.5,
-                                -motion.z * 0.5
-                        );
-                        projectile.setDeltaMovement(bounceMotion);
-                        event.setCanceled(true);
+        RayTraceResult result = event.getRayTraceResult();
+        if (result.getType() == RayTraceResult.Type.ENTITY) {
+            EntityRayTraceResult entityResult = (EntityRayTraceResult) result;
+            Entity target = entityResult.getEntity();
+
+            if (target instanceof PlayerEntity) {
+                PlayerEntity player = (PlayerEntity) target;
+
+                if (player.hasEffect(InitEffects.BOUNCE_EFFECT.get())) {
+                    event.setCanceled(true);
+
+                    Entity projectile = event.getEntity();
+
+                    Vector3d motion = projectile.getDeltaMovement();
+                    Vector3d newMotion = motion.reverse().scale(0.5);
+                    projectile.setDeltaMovement(newMotion);
+
+                    projectile.yRot += 180.0F;
+                    projectile.yRot %= 360.0F;
+
+                    if (projectile instanceof AbstractArrowEntity) {
+                        AbstractArrowEntity arrow = (AbstractArrowEntity) projectile;
+                        arrow.setNoGravity(false);
                     }
+
+                    World world = player.level;
+                    if (!world.isClientSide) {
+                        world.addParticle(ParticleTypes.CRIT,
+                                projectile.getX(),
+                                projectile.getY(),
+                                projectile.getZ(),
+                                0, 0, 0);
+                    }
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onLivingHurt(LivingHurtEvent event) {
+        if (event.getEntityLiving() instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) event.getEntityLiving();
+
+            if (player.hasEffect(InitEffects.BOUNCE_EFFECT.get())) {
+                DamageSource source = event.getSource();
+                if (source.getDirectEntity() instanceof ProjectileEntity) {
+                    event.setCanceled(true);
                 }
             }
         }

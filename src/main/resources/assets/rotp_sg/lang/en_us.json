@@ -7,9 +7,10 @@
   "action.rotp_sg.spice_girl_barrage": "Punch Barrage",
   "action.rotp_sg.spice_girl_block": "Block",
   "action.rotp_sg.spice_girl_wall_climb": "Climb the wall",
-  "action.rotp_sg.spice_girl_bounce": "Make softer",
-  "action.rotp_sg.spice_girl_bounce_her": "Make softer yourself",
+  "action.rotp_sg.spice_girl_bounce": "Make bouncier",
+  "action.rotp_sg.spice_girl_bounce_her": "Make bouncier yourself",
   "action.rotp_sg.spice_girl_bounce_up": "Bounce up",
+  "action.rotp_sg.spice_girl_soft_block": "Make block bouncier",
   "action.rotp_sg.spice_girl_bounce_up_her": "Bounce up yourself",
   "effect.rotp_sg.bounce": "Bouncy"
 }
