@@ -90,7 +90,7 @@ public class InitStands {
             () -> new SpiceGirlBounceHer(new StandEntityAction.Builder().holdType(80).staminaCostTick(3F).cooldown(160)
                     .shout(InitSounds.SPICE_GIRL_ABILITY_FIRST_VOICE)
                     .standPose(SpiceGirlBounceHer.BOUNCE_HER)
-                    .holdToFire(20, false)
+                    .holdToFire(10, false)
                     .shiftVariationOf(SPICE_GIRL_BOUNCE)
                     .resolveLevelToUnlock(1)
                     .partsRequired(StandPart.MAIN_BODY)));

@@ -431,8 +431,8 @@
 				"head": {
 					"rotation": {
 						"vector": [
-							"query.head_x_rotation",
-							"query.head_y_rotation",
+							-50,
+							0,
 							0
 						],
 						"easing": "linear"
@@ -1362,6 +1362,26 @@
 		"armsOnly_attack1": {
 			"animation_length": 1.0833,
 			"bones": {
+				"rightArmXRot": {
+					"rotation": {
+						"0.0": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						},
+						"1.1": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						}
+					}
+				},
+				"leftArmXRot": {
+					"rotation": {
+						"0.0": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						},
+						"1.1": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						}
+					}
+				},
 				"head": {
 					"rotation": {
 						"vector": [
@@ -1858,6 +1878,26 @@
 		"armsOnly_attack2": {
 			"animation_length": 1.0833,
 			"bones": {
+				"rightArmXRot": {
+					"rotation": {
+						"0.0": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						},
+						"1.1": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						}
+					}
+				},
+				"leftArmXRot": {
+					"rotation": {
+						"0.0": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						},
+						"1.1": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						}
+					}
+				},
 				"head": {
 					"rotation": {
 						"vector": [
@@ -4338,6 +4378,26 @@
 		"attack1": {
 			"animation_length": 1.0833,
 			"bones": {
+				"rightArmXRot": {
+					"rotation": {
+						"0.0": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						},
+						"1.1": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						}
+					}
+				},
+				"leftArmXRot": {
+					"rotation": {
+						"0.0": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						},
+						"1.1": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						}
+					}
+				},
 				"head": {
 					"rotation": {
 						"0.0": {
@@ -4862,6 +4922,26 @@
 		"attack2": {
 			"animation_length": 1.0833,
 			"bones": {
+				"rightArmXRot": {
+					"rotation": {
+						"0.0": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						},
+						"1.1": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						}
+					}
+				},
+				"leftArmXRot": {
+					"rotation": {
+						"0.0": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						},
+						"1.1": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						}
+					}
+				},
 				"head": {
 					"rotation": {
 						"0.0": {
@@ -5303,6 +5383,26 @@
 							0
 						],
 						"easing": "linear"
+					}
+				},
+				"rightArmXRot": {
+					"rotation": {
+						"0.0": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						},
+						"1.1": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						}
+					}
+				},
+				"leftArmXRot": {
+					"rotation": {
+						"0.0": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						},
+						"1.1": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						}
 					}
 				},
 				"body": {
@@ -5898,13 +5998,33 @@
 			},
 			"timeline": {
 				"0.0": "phase = WINDUP;",
-				"0.1": "phase = PERFORM;",
-				"0.3": "phase = RECOVERY;"
+				"0.71": "phase = PERFORM;",
+				"0.75": "phase = RECOVERY;"
 			}
 		},
 		"finisherPunch": {
 			"animation_length": 1.3333,
 			"bones": {
+				"rightArmXRot": {
+					"rotation": {
+						"0.0": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						},
+						"1.1": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						}
+					}
+				},
+				"leftArmXRot": {
+					"rotation": {
+						"0.0": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						},
+						"1.1": {
+							"vector": ["query.head_x_rotation", "query.head_y_rotation", 0]
+						}
+					}
+				},
 				"head": {
 					"rotation": {
 						"rotation": {
@@ -6338,8 +6458,8 @@
 			},
 			"timeline": {
 				"0.0": "phase = WINDUP;",
-				"0.1": "phase = PERFORM;",
-				"0.3": "phase = RECOVERY;"
+				"0.67": "phase = PERFORM;",
+				"0.71": "phase = RECOVERY;"
 			}
 		},
 		"idle": {

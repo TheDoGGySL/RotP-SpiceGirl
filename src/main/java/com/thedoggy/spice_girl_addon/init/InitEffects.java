@@ -17,7 +17,7 @@ public class InitEffects {
             ForgeRegistries.POTIONS, SpiceGirl.MOD_ID);
 
     public static final RegistryObject<Effect> BOUNCE_EFFECT = EFFECTS.register("bounce",
-            () -> new BounceEffect(0xB1F971).addAttributeModifier(Attributes.KNOCKBACK_RESISTANCE, "03e48a50-091f-44f2-8576-354e25d423e8", -5, AttributeModifier.Operation.ADDITION)
+            () -> new BounceEffect(0xB1F971).addAttributeModifier(Attributes.KNOCKBACK_RESISTANCE, "03e48a50-091f-44f2-8576-354e25d423e8", -3, AttributeModifier.Operation.ADDITION)
     );
 }
 

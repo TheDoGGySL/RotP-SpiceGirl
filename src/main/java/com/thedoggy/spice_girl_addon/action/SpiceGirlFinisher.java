@@ -20,8 +20,14 @@ import net.minecraft.util.SoundCategory;
 public class SpiceGirlFinisher extends StandEntityHeavyAttack {
     public static final StandPose FINISHER = new StandPose("finisherPunch");
 
-    public SpiceGirlFinisher(StandEntityHeavyAttack.Builder builder) { super(builder); }
-    public PlayerEntity getPlayer() { return player; }
+    public SpiceGirlFinisher(StandEntityHeavyAttack.Builder builder) {
+        super(builder);
+    }
+
+    public PlayerEntity getPlayer() {
+        return player;
+    }
+
     PlayerEntity player;
 
     @Override
@@ -31,9 +37,11 @@ public class SpiceGirlFinisher extends StandEntityHeavyAttack {
 //            if (living.hasEffect(InitEffects.BOUNCE_EFFECT.get())) {
 //                ClientTickingSoundsHelper.playVoiceLine(stand.getUser(), InitSounds.TRISH_ARIVIDERCHI.get(), SoundCategory.PLAYERS, 1f, 1f, true);
 //            }
-            living.addEffect(new EffectInstance(InitEffects.BOUNCE_EFFECT.get(), 300, 1, false, false, false));
-            living.addEffect(new EffectInstance(Effects.CONFUSION, 50, 0, false, false, false));
-            // хуйня living.addEffect(new EffectInstance(Effects.GLOWING, 600, 0, false, false, false));
+            if (target instanceof LivingEntity) {
+                living.addEffect(new EffectInstance(InitEffects.BOUNCE_EFFECT.get(), 300, 1, false, false, false));
+                living.addEffect(new EffectInstance(Effects.CONFUSION, 50, 0, false, false, false));
+                // хуйня living.addEffect(new EffectInstance(Effects.GLOWING, 600, 0, false, false, false));
+            }
         }
         return super.punchEntity(stand, target, dmgSource).addKnockback(0.5F + stand.getLastHeavyFinisherValue())
                 .knockbackXRot(-10.0F);
